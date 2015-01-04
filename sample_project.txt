@@ -1,0 +1,15 @@
+title: anything_you_like  # Name of your final assembly
+
+type: [ library | test | executable | win ]  # Compile to dll or exe
+
+dependencies:
+  - MyUtilities : ..\..\Utils  # Relative reference to some custom utils
+  - FancyLibrary : [root]\Great\Framework  # Fixed path to some fancy library
+
+requirements:
+  - NUnit : 2.6.3	# in case you have tests
+  - Log4net : 2.0.0	# great for logging
+
+
+# Anchor file
+anchor: root
