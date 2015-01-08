@@ -89,24 +89,22 @@ namespace DFDG.Util.Encryption {
             Console.WriteLine("Please enter a password to use:");
             string password = Console.ReadLine();
             Console.WriteLine("Please enter a string to encrypt:");
-            //string plaintext = Console.ReadLine();
-            for(int i = 0;i < 25; i++) 
-            {
-                var plaintext = "1Kamel2Pukler";
-                Console.WriteLine("");
+            string plaintext = Console.ReadLine();
 
-                Console.WriteLine("Your encrypted string is:");
-                string encryptedstring = StringCipher.Encrypt(plaintext, password);
-                Console.WriteLine(encryptedstring);
-                Console.WriteLine("");
 
-                //string encryptedstring = Console.ReadLine();
+            Console.WriteLine("");
 
-                Console.WriteLine("Your decrypted string is:");
-                string decryptedstring = StringCipher.Decrypt(encryptedstring, password);
-                Console.WriteLine(decryptedstring);
-            }
+            Console.WriteLine("Your encrypted string is:");
+            string encryptedstring = StringCipher.Encrypt(plaintext, password);
+            Console.WriteLine(encryptedstring);
+            Console.WriteLine("");
 
+            //string encryptedstring = Console.ReadLine();
+
+            Console.WriteLine("Your decrypted string is:");
+            string decryptedstring = StringCipher.Decrypt(encryptedstring, password);
+            Console.WriteLine(decryptedstring);
+  
             Console.WriteLine("");
 
             Console.ReadLine();
