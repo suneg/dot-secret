@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using System.Collections.Generic;		
 
-namespace DFDG.Util.Encryption {
+namespace Util.Encryption {
     public class StringCipher
     {
         // This constant is used to determine the keysize of the encryption algorithm.
