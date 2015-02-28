@@ -2,6 +2,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;		
 
 namespace DFDG.Util.Encryption {
     public class StringCipher
@@ -11,8 +12,8 @@ namespace DFDG.Util.Encryption {
         private const int keysize = 256;
 
         private static void GenerateRandomIv(byte[] iv) {
-            Random rnd = new Random(Guid.NewGuid().GetHashCode());
-            rnd.NextBytes(iv);
+            RNGCryptoServiceProvider cryptoProvider = new RNGCryptoServiceProvider();
+            cryptoProvider.GetBytes(iv);
         }
 
         public static string Encrypt(string plainText, string passPhrase)
@@ -95,15 +96,25 @@ namespace DFDG.Util.Encryption {
             Console.WriteLine("");
 
             Console.WriteLine("Your encrypted string is:");
-            string encryptedstring = StringCipher.Encrypt(plaintext, password);
-            Console.WriteLine(encryptedstring);
+            
+            var cipherTexts = new List<String>();
+
+            for(var i=0;i<5;i++) {
+            	string encryptedstring = StringCipher.Encrypt(plaintext, password);
+            	Console.WriteLine(encryptedstring);
+            	cipherTexts.Add(encryptedstring);
+        	}
+            
             Console.WriteLine("");
 
             //string encryptedstring = Console.ReadLine();
 
             Console.WriteLine("Your decrypted string is:");
-            string decryptedstring = StringCipher.Decrypt(encryptedstring, password);
-            Console.WriteLine(decryptedstring);
+
+            for(var i=0;i<5;i++) {
+           		string decryptedstring = StringCipher.Decrypt(cipherTexts[i], password);
+            	Console.WriteLine(decryptedstring);
+            }
   
             Console.WriteLine("");
 
