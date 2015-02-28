@@ -25,7 +25,7 @@ namespace DFDG.Util.Encryption {
             using (PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
             {
                 byte[] keyBytes = password.GetBytes(keysize / 8);
-                using (RijndaelManaged symmetricKey = new RijndaelManaged())
+                using (AesManaged symmetricKey = new AesManaged())
                 {
                     symmetricKey.Mode = CipherMode.CBC;
                     using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
