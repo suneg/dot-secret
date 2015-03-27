@@ -1,1 +1,14 @@
-type:executable
+# Name: scripts
+# Type: library
+# Output: scripts.dll
+
+# Dependencies:
+#   Acme.Project
+
+# Packages:
+#   NUnit : 2.6.3
+
+# Sources:
+# **\*.cs
+
+
