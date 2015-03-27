@@ -63,7 +63,7 @@ namespace Util.Encryption {
             using(PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
             {
                 byte[] keyBytes = password.GetBytes(keysize / 8);
-                using(RijndaelManaged symmetricKey = new RijndaelManaged())
+                using(AesManaged symmetricKey = new AesManaged())
                 {
                     symmetricKey.Mode = CipherMode.CBC;
                     using(ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, iv))
@@ -92,6 +92,9 @@ namespace Util.Encryption {
             Console.WriteLine("Please enter a string to encrypt:");
             string plaintext = Console.ReadLine();
 
+            //if(args[0] )
+            //Console.ReadLine();
+
 
             Console.WriteLine("");
 
@@ -99,7 +102,7 @@ namespace Util.Encryption {
             
             var cipherTexts = new List<String>();
 
-            for(var i=0;i<5;i++) {
+            for(var i=0;i<3;i++) {
             	string encryptedstring = StringCipher.Encrypt(plaintext, password);
             	Console.WriteLine(encryptedstring);
             	cipherTexts.Add(encryptedstring);
@@ -111,7 +114,7 @@ namespace Util.Encryption {
 
             Console.WriteLine("Your decrypted string is:");
 
-            for(var i=0;i<5;i++) {
+            for(var i=0;i<3;i++) {
            		string decryptedstring = StringCipher.Decrypt(cipherTexts[i], password);
             	Console.WriteLine(decryptedstring);
             }
