@@ -1,6 +1,6 @@
-# Name: scripts
+Name: dot-secret
 Type: executable
-Output: scripts.exe
+# Output: dot-secret.exe
 
 # Dependencies:
 #   Acme.Project
