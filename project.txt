@@ -1,6 +1,6 @@
 # Name: scripts
-# Type: library
-# Output: scripts.dll
+Type: executable
+Output: scripts.exe
 
 # Dependencies:
 #   Acme.Project
