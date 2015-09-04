@@ -100,7 +100,7 @@ namespace Util.Encryption {
             
             Console.WriteLine("\nYour decrypted string is:");
 
-           	string decryptedstring = StringCipher.Decrypt(cipherTexts[i], password);
+           	string decryptedstring = StringCipher.Decrypt(encryptedstring, password);
             Console.WriteLine(decryptedstring);
             
             Console.WriteLine("");
