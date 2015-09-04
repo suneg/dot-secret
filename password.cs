@@ -87,41 +87,23 @@ namespace Util.Encryption {
     {
         public static void Main(string[] args) 
         {
-            Console.WriteLine("Please enter a password to use:");
-            string password = Console.ReadLine();
-            Console.WriteLine("Please enter a string to encrypt:");
-            string plaintext = Console.ReadLine();
-
-            //if(args[0] )
-            //Console.ReadLine();
-
-
-            Console.WriteLine("");
-
-            Console.WriteLine("Your encrypted string is:");
-            
-            var cipherTexts = new List<String>();
-
-            for(var i=0;i<3;i++) {
-            	string encryptedstring = StringCipher.Encrypt(plaintext, password);
-            	Console.WriteLine(encryptedstring);
-            	cipherTexts.Add(encryptedstring);
-        	}
-            
-            Console.WriteLine("");
-
-            //string encryptedstring = Console.ReadLine();
-
-            Console.WriteLine("Your decrypted string is:");
-
-            for(var i=0;i<3;i++) {
-           		string decryptedstring = StringCipher.Decrypt(cipherTexts[i], password);
-            	Console.WriteLine(decryptedstring);
+            if(args[0] == "") {
+                Console.WriteLine("No password specific to encrypt stdin");
             }
-  
-            Console.WriteLine("");
 
-            Console.ReadLine();
+            string password = args[0];
+            string plaintext = System.Console.In.ReadToEnd();
+            
+            string encryptedstring = StringCipher.Encrypt(plaintext, password);
+            Console.WriteLine("Your encrypted string is:");
+            Console.WriteLine(encryptedstring);
+            
+            Console.WriteLine("\nYour decrypted string is:");
+
+           	string decryptedstring = StringCipher.Decrypt(cipherTexts[i], password);
+            Console.WriteLine(decryptedstring);
+            
+            Console.WriteLine("");
         }
     }
 }
